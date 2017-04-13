@@ -1,4 +1,4 @@
-#!/usr/bin/env/python3
+#!/usr/bin/env python3
 
 int_names = {
         0x0000: 'prodidUnknown',
@@ -274,26 +274,27 @@ int_names = {
 	0x010e: 'prodidUtc1900_POGO_O_CPP',
 }
 
+## These are somewhat guessed, don't rely on them 100%
 def vs_version(i):
     if i > len(int_names) or i < 0:
         return '<unknown>', 'XX.XX'
     elif i in range(0x00fd, 0x010e + 1):
         return 'Visual Studio 2015', '14.00'
-    elif i in range(0x00eb, 0x00fd + 1):
+    elif i in range(0x00eb, 0x00fd):
         return 'Visual Studio 2013', '12.10'
-    elif i in range(0x00d9, 0x00eb + 1):
+    elif i in range(0x00d9, 0x00eb):
         return 'Visual Studio 2013', '12.00'
-    elif i in range(0x00c7, 0x00d9 + 1):
+    elif i in range(0x00c7, 0x00d9):
         return 'Visual Studio 2012', '11.00'
-    elif i in range(0x00b5, 0x00c7 + 1):
+    elif i in range(0x00b5, 0x00c7):
         return 'Visual Studio 2010', '10.10'
-    elif i in range(0x0098, 0x00b5 + 1): ## TODO: Investigate on Phoenix
+    elif i in range(0x0098, 0x00b5): ## TODO: Investigate on Phoenix
         return 'Visual Studio 2010', '10.00'
-    elif i in range(0x0083, 0x0098 + 1): ## TODO: Investigate on Phoenix
+    elif i in range(0x0083, 0x0098): ## TODO: Investigate on Phoenix
         return 'Visual Studio 2008', '09.00'
-    elif i in range(0x006d, 0x0083 + 1):
+    elif i in range(0x006d, 0x0083):
         return 'Visual Studio 2005', '08.00'
-    elif i in range(0x005a, 0x006d + 1):
+    elif i in range(0x005a, 0x006d):
         return 'Visual Studio 2003', '07.10'
     elif i == 1:
         return 'Visual Studio', '00.00'
